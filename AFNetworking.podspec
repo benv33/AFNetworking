@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'AFNetworking'
-  s.version  = '4.0.11'
+  s.version  = '4.0.12'
   s.license  = 'MIT'
   s.summary  = 'A delightful networking framework for Apple platforms.'
   s.homepage = 'https://github.com/AFNetworking/AFNetworking'
@@ -20,14 +20,16 @@ Pod::Spec.new do |s|
 
   s.source_files = 'AFNetworking/AFNetworking.h'
 
-  s.resource_bundles = { s.module_name => ['Source/PrivacyInfo.xcprivacy'] }
+  s.resource_bundles = {'AFNetworking' => ['Source/PrivacyInfo.xcprivacy']}
 
   s.subspec 'Serialization' do |ss|
     ss.source_files = 'AFNetworking/AFURL{Request,Response}Serialization.{h,m}'
+	ss.resource_bundles = {'AFNetworking' => ['Source/PrivacyInfo.xcprivacy']}
   end
 
   s.subspec 'Security' do |ss|
     ss.source_files = 'AFNetworking/AFSecurityPolicy.{h,m}'
+	ss.resource_bundles = {'AFNetworking' => ['Source/PrivacyInfo.xcprivacy']}
   end
 
   s.subspec 'Reachability' do |ss|
@@ -36,6 +38,8 @@ Pod::Spec.new do |s|
     ss.tvos.deployment_target = '9.0'
 
     ss.source_files = 'AFNetworking/AFNetworkReachabilityManager.{h,m}'
+	ss.resource_bundles = {'AFNetworking' => ['Source/PrivacyInfo.xcprivacy']}
+
   end
 
   s.subspec 'NSURLSession' do |ss|
@@ -44,6 +48,7 @@ Pod::Spec.new do |s|
     ss.osx.dependency 'AFNetworking/Reachability'
     ss.tvos.dependency 'AFNetworking/Reachability'
     ss.dependency 'AFNetworking/Security'
+	ss.resource_bundles = {'AFNetworking' => ['Source/PrivacyInfo.xcprivacy']}
 
     ss.source_files = 'AFNetworking/AF{URL,HTTP}SessionManager.{h,m}', 'AFNetworking/AFCompatibilityMacros.h'
   end
@@ -52,6 +57,7 @@ Pod::Spec.new do |s|
     ss.ios.deployment_target = '9.0'
     ss.tvos.deployment_target = '9.0'
     ss.dependency 'AFNetworking/NSURLSession'
+	ss.resource_bundles = {'AFNetworking' => ['Source/PrivacyInfo.xcprivacy']}
 
     ss.source_files = 'UIKit+AFNetworking'
   end
